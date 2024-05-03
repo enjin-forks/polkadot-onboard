@@ -22,8 +22,8 @@ const ConnectContainer = () => {
       url: '#',
       icons: ['/images/wallet-connect.svg'],
     },
-    chainIds: ['polkadot:e143f23803ac50e8f6f8e62695d1ce9e', 'polkadot:91b171bb158e2d3848fa23a9f1c25182'],
-    optionalChainIds: ['polkadot:67f9723393ef76214df0118c34bbbd3d', 'polkadot:7c34d42fc815d392057c78b49f2755c7'],
+    chainIds: ['polkadot:d8761d3c88f26dc12875c00d3165f7d6', 'polkadot:3af4ff48ec76d2efc8476730f423ac07'],
+    optionalChainIds: ['polkadot:735d8773c63e74ff8490fee5751ac07e', 'polkadot:a37725fd8943d2a524cb7ecc65da438f'],
     onSessionDelete: () => {
       // do something when session is removed
     },

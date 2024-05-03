@@ -18,6 +18,40 @@ interface AccountBoxParams {
 }
 
 export const AccountBox = ({ api, account, signer }: AccountBoxParams) => {
+  const signPlatformTransaction = async (event: any) => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    console.log('Nonce' + account?.nonce);
+
+      try {
+        const res = await fetch(
+          `api/transaction?address=${account?.address}`,
+          {
+            method: 'GET',
+          }
+        );
+        const data = await res.json();
+        const txId = data?.data?.CreateCollection?.id;
+        const payload = data?.data?.CreateCollection?.signingPayloadJson;
+        const { signature } = await signer?.signPayload(payload)
+        console.log('Signature' + signature);
+
+        const send = await fetch(
+          `api/send?id=${txId}&signingPayloadJson=${JSON.stringify(payload)}&signature=${signature}`,
+          {
+            method: 'GET',
+          }
+        );
+        const sendData = await send.json();
+        console.log(sendData);
+
+      } catch (err) {
+        console.log(err);
+      }
+  };
+
+
   const signTransactionHandler = async (event: any) => {
     event.preventDefault();
     event.stopPropagation();
@@ -49,10 +83,10 @@ export const AccountBox = ({ api, account, signer }: AccountBoxParams) => {
       <div className={`${styles.address}`}>{shorten(account?.address)}</div>
       <div className={`${styles.flex} ${styles.column}`}>
         <button className={`${styles.btn} ${styles.small}`} onClick={(e) => signTransactionHandler(e)}>
-          Submit Transaction
+          Submit Transaction with Polkadot.JS
         </button>
-        <button className={`${styles.btn} ${styles.small}`} onClick={(e) => signMessageHandler(e)}>
-          Sign Message
+        <button className={`${styles.btn} ${styles.small}`} onClick={(e) => signPlatformTransaction(e)}>
+          Submit Transaction with Platform
         </button>
       </div>
     </div>
