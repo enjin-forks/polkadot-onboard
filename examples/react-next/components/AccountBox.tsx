@@ -22,8 +22,6 @@ export const AccountBox = ({ api, account, signer }: AccountBoxParams) => {
     event.preventDefault();
     event.stopPropagation();
 
-    console.log('Nonce' + account?.nonce);
-
       try {
         const res = await fetch(
           `api/transaction?address=${account?.address}`,
