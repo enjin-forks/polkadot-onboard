@@ -10,7 +10,7 @@ export default async function handler(
 ) {
   console.log(req.query.signingPayloadJson);
 
-  const response = await fetch('https://platform.enjin.io/graphql', {
+  const response = await fetch('https://platform.canary.enjin.io/graphql', {
     method: 'POST',
     mode: 'no-cors',
     headers: {

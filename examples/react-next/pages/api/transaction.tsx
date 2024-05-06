@@ -8,7 +8,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<ResponseData>
 ) {
-  const walletResponse = await fetch('https://platform.enjin.io/graphql', {
+  const walletResponse = await fetch('https://platform.canary.enjin.io/graphql', {
     method: 'POST',
     mode: 'no-cors',
     headers: {
@@ -30,7 +30,7 @@ export default async function handler(
   const walletData = await walletResponse.json();
   const nonce = walletData.data?.GetWallet?.nonce ?? 0;
 
-  const response = await fetch('https://platform.enjin.io/graphql', {
+  const response = await fetch('https://platform.canary.enjin.io/graphql', {
     method: 'POST',
     mode: 'no-cors',
     headers: {

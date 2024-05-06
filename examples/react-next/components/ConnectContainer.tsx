@@ -9,7 +9,7 @@ import styles from 'styles/Home.module.css';
 
 import Wallets from './Wallets';
 
-const APP_NAME = 'Polkadot Demo';
+const APP_NAME = 'WalletConnect Demo';
 
 const ConnectContainer = () => {
   let injectedWalletProvider = new InjectedWalletProvider(extensionConfig, APP_NAME);
@@ -17,13 +17,13 @@ const ConnectContainer = () => {
     projectId: '4fae85e642724ee66587fa9f37b997e2',
     relayUrl: 'wss://relay.walletconnect.com',
     metadata: {
-      name: 'Polkadot Demo',
-      description: 'Polkadot Demo',
+      name: 'WalletConnect Demo',
+      description: 'WalletConnect Demo',
       url: '#',
       icons: ['/images/wallet-connect.svg'],
     },
-    chainIds: ['polkadot:d8761d3c88f26dc12875c00d3165f7d6', 'polkadot:3af4ff48ec76d2efc8476730f423ac07'],
-    optionalChainIds: ['polkadot:735d8773c63e74ff8490fee5751ac07e', 'polkadot:a37725fd8943d2a524cb7ecc65da438f'],
+    chainIds: ['polkadot:a37725fd8943d2a524cb7ecc65da438f'],
+    optionalChainIds: ['polkadot:735d8773c63e74ff8490fee5751ac07e', 'polkadot:d8761d3c88f26dc12875c00d3165f7d6', 'polkadot:3af4ff48ec76d2efc8476730f423ac07'],
     onSessionDelete: () => {
       // do something when session is removed
     },
